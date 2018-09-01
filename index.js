@@ -19,19 +19,27 @@ app.get('/sighnup', (req, res) => {
 })
 
 app.post('/sighnup', (req, res) => {
-  // console.log('Post hit: ' req)
-  // let firstName = req.body.firstName
-  // let lastName = req.body.lastName
-  // let email = req.body.email
   let information = req.body
-  // res.status(201);
-  // res.write('post hit')
-  // res.write(firstName + ' ' + lastName + ' ' + email)
   res.send(information)
   console.log(information)
-  // res.end()
-  // res.sendFile('public/index.html');
+  saveData(information)
 })
+
+// save data
+function saveData(toBeSaved){
+  let firstName = toBeSaved['firstName']
+  let lastName = toBeSaved['lastName']
+  let email = toBeSaved['email']
+  let formatedData = firstName + ',' + lastName + ',' + email + ',' + toBeSaved['interests'] + '\n'
+  // save data to csv file.
+  fs.appendFile('interested.csv', formatedData, 'utf8', function (err) {
+    if (err) {
+      console.log('error, data not saved.')
+    } else {
+      console.log('data saved.')
+    }
+  })
+}
 
 
 // // static files
