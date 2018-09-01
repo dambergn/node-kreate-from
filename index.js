@@ -23,13 +23,13 @@ app.post('/sighnup', (req, res) => {
   // let firstName = req.body.firstName
   // let lastName = req.body.lastName
   // let email = req.body.email
-  let information = req.body.json
-  res.status(201);
-  // res.write(firstName)
-  // res.write(lastName)
-  // res.write(email)
-  res.write(information)
-  res.end()
+  let information = req.body
+  // res.status(201);
+  // res.write('post hit')
+  // res.write(firstName + ' ' + lastName + ' ' + email)
+  res.send(information)
+  console.log(information)
+  // res.end()
   // res.sendFile('public/index.html');
 })
 

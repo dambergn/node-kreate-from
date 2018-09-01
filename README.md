@@ -1,1 +1,2 @@
 # Intrested Form
+A simple sighn up form that saves a persons Name, Email, And their intrests so we can inform them of events that apply to them.  Information will be saved to a local csv file that can be easily imported to a spreadsheet.

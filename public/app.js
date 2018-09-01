@@ -34,10 +34,15 @@ document.getElementById("submit").addEventListener("click", function (event) {
   // }
   // let string = saveContent.toString();
   console.log(JSON.stringify(saveContent))
+  // console.log(saveContent)
 
   fetch('sighnup', {
     url: `${window.location.href}`,
     method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    // body: saveContent
     body: JSON.stringify(saveContent)
   });
 
